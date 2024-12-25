@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Add New Patient</h2>
+    <form method="POST" class="mt-4">
+        {{ form.hidden_tag() }}
+        <!-- Patient Name -->
+        <div class="form-group">
+            <label for="name">Name</label>
+            {{ form.name(class="form-control", id="name") }}
+        </div>
+
+    <!-- Date of Birth -->
+    <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" class="form-control" value="{{ form.dob.data | format_date }}">
+    </div>
+    
+
+        <!-- Gender Dropdown -->
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender" class="form-control">
+                <option value="" {% if not form.gender.data %}selected{% endif %}>Select Gender</option>
+                <option value="Male" {% if form.gender.data == "Male" %}selected{% endif %}>Male</option>
+                <option value="Female" {% if form.gender.data == "Female" %}selected{% endif %}>Female</option>
+                <option value="Other" {% if form.gender.data == "Other" %}selected{% endif %}>Other</option>
+            </select>
+        </div>
+
+        <!-- Weight Input -->
+        <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            {{ form.weight(class="form-control", id="weight") }}
+        </div>
+
+        <!-- Height Input -->
+        <div class="form-group">
+            <label for="height">Height (cm)</label>
+            {{ form.height(class="form-control", id="height") }}
+        </div>
+
+        <!-- Blood Type Dropdown -->
+        <div class="form-group">
+            <label for="blood_type">Blood Type</label>
+            <select name="blood_type" id="blood_type" class="form-control">
+                <option value="" {% if not form.blood_type.data %}selected{% endif %}>Select Blood Type</option>
+                <option value="A" {% if form.blood_type.data == "A" %}selected{% endif %}>A</option>
+                <option value="A+" {% if form.blood_type.data == "A+" %}selected{% endif %}>A+</option>
+                <option value="A-" {% if form.blood_type.data == "A-" %}selected{% endif %}>A-</option>
+                <option value="B" {% if form.blood_type.data == "B" %}selected{% endif %}>B</option>
+                <option value="B+" {% if form.blood_type.data == "B+" %}selected{% endif %}>B+</option>
+                <option value="B-" {% if form.blood_type.data == "B-" %}selected{% endif %}>B-</option>
+                <option value="AB" {% if form.blood_type.data == "AB" %}selected{% endif %}>AB</option>
+                <option value="AB+" {% if form.blood_type.data == "AB+" %}selected{% endif %}>AB+</option>
+                <option value="AB-" {% if form.blood_type.data == "AB-" %}selected{% endif %}>AB-</option>
+                <option value="O" {% if form.blood_type.data == "O" %}selected{% endif %}>O</option>
+                <option value="O+" {% if form.blood_type.data == "O+" %}selected{% endif %}>O+</option>
+                <option value="O-" {% if form.blood_type.data == "O-" %}selected{% endif %}>O-</option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

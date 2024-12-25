@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Add Medical Record</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Add Medical Record for {{ patient.name }}</h1>
+        <form method="POST" class="mt-4">
+            <div class="mb-3">
+                <label for="chief_complaint" class="form-label">Chief Complaint:</label>
+                <textarea id="chief_complaint" name="chief_complaint" class="form-control" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="diagnosis" class="form-label">Diagnosis:</label>
+                <textarea id="diagnosis" name="diagnosis" class="form-control" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="medications" class="form-label">Medications:</label>
+                <textarea id="medications" name="medications" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="allergies" class="form-label">Allergies:</label>
+                <textarea id="allergies" name="allergies" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="vital_signs" class="form-label">Vital Signs:</label>
+                <textarea id="vital_signs" name="vital_signs" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="treatment_plan" class="form-label">Treatment Plan:</label>
+                <textarea id="treatment_plan" name="treatment_plan" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="medical_history" class="form-label">Medical History:</label>
+                <textarea id="medical_history" name="medical_history" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="family_history" class="form-label">Family History:</label>
+                <textarea id="family_history" name="family_history" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="social_history" class="form-label">Social History:</label>
+                <textarea id="social_history" name="social_history" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="prognosis" class="form-label">Prognosis:</label>
+                <textarea id="prognosis" name="prognosis" class="form-control"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Add Record</button>
+        </form>
+        <a href="{{ url_for('medical_records', patient_id=patient.id) }}" class="btn btn-secondary mt-3 w-100">Back to Records</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
